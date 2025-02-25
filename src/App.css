@@ -1,0 +1,47 @@
+.header-main {
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+}
+
+.header-logo {
+  width: auto;
+  height: 45px;
+  border-radius: 0 0 20px;
+  position: relative;
+  z-index: 20;
+}
+
+.header-theme {
+  width: auto;
+  height: 45px;
+  border-radius: 0 0 0 20px;
+  position: relative;
+  z-index: 20;
+}
+
+.svg-corner {
+  position: absolute;
+}
+
+.corner-logo-box-one {
+  bottom: -30px;
+  left: 0;
+}
+
+.corner-logo-box-two {
+  right: -30px;
+  top: 0;
+}
+
+.theme-curve-down {
+  bottom: -30px;
+  right: 16px;
+  rotate: 90deg;
+}
+
+.theme-curve-top {
+  left: -29px;
+  top: 0;
+  rotate: 90deg;
+}
