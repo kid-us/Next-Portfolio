@@ -1,4 +1,5 @@
 import "./App.css";
+import Marquee from "./components/Marquee";
 
 function App() {
   return (
@@ -107,7 +108,9 @@ function App() {
         </div>
       </header>
 
-      <div className="h-[98dvh] bg-black rounded-2xl"></div>
+      <div className="h-[98dvh] bg-black rounded-2xl">
+        <Marquee />
+      </div>
     </div>
   );
 }
