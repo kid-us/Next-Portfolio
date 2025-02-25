@@ -49,12 +49,17 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between">
-      <div className="header-logo bg-nav-bg text-center px-10">
+      <div className="header-logo bg-nav-bg text-center px-10 border-r border-gray-700">
         <a
           href="#"
-          className="flex items-center h-full justify-center font-semibold"
+          className="flex items-center h-full justify-center font-semibold uppercase"
         >
-          Kidus
+          kidus
+          {/* <img
+            src={savedTheme === "light" ? logoWhite : logoDark}
+            alt="Logo"
+            className="w-20"
+          /> */}
         </a>
 
         <svg
@@ -68,7 +73,7 @@ const Navbar = () => {
           <g clip-path="url(#clip0_310_2)">
             <path
               d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
-              fill={savedTheme === "light" ? "#fff" : "#121212"}
+              fill={savedTheme === "light" ? "#fff" : "#242424"}
             ></path>
           </g>
           <defs>
@@ -89,7 +94,7 @@ const Navbar = () => {
           <g clip-path="url(#clip0_310_2)">
             <path
               d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
-              fill={savedTheme === "light" ? "#fff" : "#121212"}
+              fill={savedTheme === "light" ? "#fff" : "#242424"}
             ></path>
           </g>
           <defs>
@@ -101,8 +106,8 @@ const Navbar = () => {
       </div>
 
       {/* Theme */}
-      <div className="header-theme bg-nav-bg text-center px-5">
-        <div className="flex items-center h-full justify-center">
+      <div className="header-theme bg-nav-bg text-center px-7 border-l border-gray-700">
+        <div className="flex items-center h-full justify-center ">
           {savedTheme === "light" ? (
             <button onClick={toggleTheme}>
               <MoonStar />
@@ -124,7 +129,7 @@ const Navbar = () => {
           <g clip-path="url(#clip0_310_2)">
             <path
               d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
-              fill={savedTheme === "light" ? "#fff" : "#121212"}
+              fill={savedTheme === "light" ? "#fff" : "#242424"}
             ></path>
           </g>
           <defs>
@@ -145,7 +150,7 @@ const Navbar = () => {
           <g clip-path="url(#clip0_310_2)">
             <path
               d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
-              fill={savedTheme === "light" ? "#fff" : "#121212"}
+              fill={savedTheme === "light" ? "#fff" : "#242424"}
             ></path>
           </g>
           <defs>
