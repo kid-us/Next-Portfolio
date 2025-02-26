@@ -1,5 +1,6 @@
 import { MoonStar, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { logoDark, logoWhite } from "../assets";
 
 const Navbar = () => {
   const [savedTheme, setSavedTheme] = useState<string>("");
@@ -49,17 +50,17 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between">
-      <div className="header-logo bg-nav-bg text-center px-10 border-r border-gray-700">
+      <div className="header-logo bg-nav-bg text-center px-10 pb-2 border-r border-gray-700">
         <a
           href="#"
-          className="flex items-center h-full justify-center font-semibold uppercase"
+          className="flex items-center text-4xl h-full justify-center logo-font uppercase gap-x-2"
         >
-          kidus
-          {/* <img
+          <img
             src={savedTheme === "light" ? logoWhite : logoDark}
             alt="Logo"
-            className="w-20"
-          /> */}
+            className="w-9 object-contain"
+          />
+          <span className="mt-2">Kidus</span>
         </a>
 
         <svg
