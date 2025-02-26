@@ -45,3 +45,7 @@
   top: 0;
   rotate: 90deg;
 }
+
+.animate-spotlight {
+  animation: spotlight 2s ease 0.75s 1 forwards;
+}

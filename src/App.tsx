@@ -1,5 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Window from "./components/Window";
 
 function App() {
   return (
@@ -8,7 +9,11 @@ function App() {
         <Navbar />
       </header>
 
-      <div className="h-[98dvh] bg-background rounded-2xl"></div>
+      <div className="h-[98dvh] bg-background rounded-2xl overflow-y-auto">
+        <div className="h-[300vh]">
+          <Window />
+        </div>
+      </div>
     </div>
   );
 }
