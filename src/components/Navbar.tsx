@@ -1,6 +1,8 @@
-import { Menu, MoonStar, Sun } from "lucide-react";
+import { Menu, MoonStar, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import useThemeStore from "../store/themeStore";
+import { nav } from "../constant/nav";
+import MenuPopUp from "./Menu";
 
 const Navbar = () => {
   const { setTheme, theme } = useThemeStore();
@@ -51,26 +53,6 @@ const Navbar = () => {
   }, [setTheme]);
 
   // Toggle between light and dark themes
-  // const toggleTheme = () => {
-  //   const currentTheme = localStorage.getItem("theme");
-  //   const newTheme = currentTheme === "dark" ? "light" : "dark";
-
-  //   // Remove old theme and add new theme
-  //   document.body.classList.remove("dark", "light");
-  //   document.body.classList.add(newTheme);
-
-  //   // Update localStorage and state
-  //   localStorage.setItem("theme", newTheme);
-  //   setSavedTheme(newTheme);
-  //   setTheme(newTheme);
-
-  //   // Trigger theme transition animation
-  //   setAnimationClass("grow");
-
-  //   // Reset animation after 700ms
-  //   setTimeout(() => setAnimationClass(""), 700);
-  // };
-
   const toggleTheme = () => {
     const currentTheme = localStorage.getItem("theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
@@ -91,13 +73,25 @@ const Navbar = () => {
     setTimeout(() => setAnimationClass(""), 700);
   };
 
+  const [menuAnimationClass, setMenuAnimationClass] = useState<string>(
+    "animate__fadeInLeft"
+  );
+
+  const handleCloseMenu = () => {
+    document.body.style.overflow = "auto";
+    setMenuAnimationClass("animate__fadeOutRight");
+    setTimeout(() => {
+      setViewMenu(false);
+      setMenuAnimationClass("animate__fadeInRight");
+    }, 500);
+  };
+
   return (
     <>
       <div
         className={`${
           theme === "dark" ? "darkCircle" : "lightCircle"
         } ${animationClass}`}
-        // style={{ zIndex: -2 }}
       />
 
       <div className="fixed w-full">
@@ -109,15 +103,16 @@ const Navbar = () => {
               lg:flex hidden justify-between px-5 py-[7px] items-center rounded-full w-full overflow-hidden`}
               style={{ width: `${scrollWidth}%` }}
             >
-              <a href="#" className="logo-font text-center text-2xl uppercase">
+              <a href="#" className="logo-font text-center text-3xl uppercase">
                 Kidus
               </a>
 
               <div className="flex gap-x-8 text-sm">
-                <p>Home</p>
-                <p>About</p>
-                <p>Project</p>
-                <p>Contact</p>
+                {nav.map((n) => (
+                  <a key={n.id} href={n.path}>
+                    {n.name}
+                  </a>
+                ))}
               </div>
 
               {/* Theme */}
@@ -153,28 +148,37 @@ const Navbar = () => {
                     <Sun size={20} />
                   </button>
                 )}
-                <button onClick={() => setViewMenu(!viewMenu)}>
-                  <Menu size={20} />
-                </button>
+                {viewMenu ? (
+                  <button onClick={() => handleCloseMenu()}>
+                    <X size={20} />
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setViewMenu(true);
+                      document.body.style.overflow = "hidden";
+                    }}
+                  >
+                    <Menu size={20} />
+                  </button>
+                )}
               </div>
             </nav>
           </div>
         </header>
       </div>
+
+      {/* Menu */}
+      {viewMenu && (
+        <MenuPopUp
+          animate={menuAnimationClass}
+          onClose={() => handleCloseMenu()}
+          theme={savedTheme}
+          onToggle={() => toggleTheme()}
+        />
+      )}
     </>
   );
 };
 
 export default Navbar;
-
-//   const [animationClass, setAnimationClass] = useState<string>(
-//     "animate__fadeInLeft"
-//   );
-
-//   const handleCloseMenu = () => {
-//     setAnimationClass("animate__fadeOutLeft");
-//     setTimeout(() => {
-//       setViewMenu(false);
-//       setAnimationClass("animate__fadeInLeft");
-//     }, 500);
-//   };
