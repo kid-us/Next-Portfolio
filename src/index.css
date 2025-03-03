@@ -36,7 +36,7 @@
 
 .light {
   color: #000;
-  --background: #eee;
+  --background: #f7f8fa;
   --nav-bg: #fff;
   --btn: #000;
   --btn-color: #fff !important;
@@ -53,6 +53,8 @@
   --panel-bg: #000;
 
   background: var(--background);
+
+  transition: background-color 0.3s ease-in-out 0.4s, color 0.7s ease-in-out;
 }
 
 .dark {
@@ -74,6 +76,7 @@
   --panel-bg: #fff;
 
   background: var(--background);
+  transition: background-color 0.3s ease-in-out 0.4s, color 0.7s ease-in-out;
 }
 
 @theme {
@@ -166,4 +169,40 @@
       rgba(255, 255, 255, 0.09) 0%,
       rgba(255, 255, 255, 0) 100%
     );
+}
+
+.darkCircle,
+.lightCircle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.darkCircle {
+  background-color: var(--background);
+  clip-path: circle(0% at 100% 0%);
+}
+
+.lightCircle {
+  background-color: var(--background);
+  clip-path: circle(0% at 100% 0%);
+}
+
+.darkCircle.grow,
+.lightCircle.grow {
+  animation-name: circle-grow;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes circle-grow {
+  0% {
+    clip-path: circle(0% at 100% 0%);
+  }
+
+  100% {
+    clip-path: circle(150% at 100% 0%);
+  }
 }

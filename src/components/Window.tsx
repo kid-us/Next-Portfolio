@@ -1,22 +1,7 @@
-import { useEffect, useState } from "react";
+import useThemeStore from "../store/themeStore";
 
 const Window = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-
-  // Listen for theme changes in localStorage
-  useEffect(() => {
-    const handleThemeChange = () => {
-      setTheme(localStorage.getItem("theme") || "light");
-    };
-
-    window.addEventListener("storage", handleThemeChange);
-
-    return () => {
-      window.removeEventListener("storage", handleThemeChange);
-    };
-  }, [theme]);
-
-  // const fillColor = theme === "light" ? "#fff" : "#242424";
+  const { theme } = useThemeStore();
 
   return (
     <div className="flex justify-center items-center h-[98dvh] sticky top-0 perspective-[20em]">

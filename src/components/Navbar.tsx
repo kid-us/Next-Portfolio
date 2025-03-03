@@ -1,11 +1,13 @@
 import { MoonStar, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-import { logoDark, logoWhite } from "../assets";
+import useThemeStore from "../store/themeStore";
 
 const Navbar = () => {
+  const { setTheme } = useThemeStore();
   const [savedTheme, setSavedTheme] = useState<string>("");
-  //   const [viewMenu, setViewMenu] = useState<boolean>(false);
+  const [animationClass, setAnimationClass] = useState("");
 
+  // Set theme based on localStorage or system preference on initial load
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
 
@@ -13,156 +15,94 @@ const Navbar = () => {
       document.body.classList.add(storedTheme);
       setSavedTheme(storedTheme);
     } else {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.body.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-        setSavedTheme("dark");
-      } else {
-        document.body.classList.add("light");
-        localStorage.setItem("theme", "light");
-        setSavedTheme("light");
-      }
+      const systemPreference = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      document.body.classList.add(systemPreference);
+      localStorage.setItem("theme", systemPreference);
+      setTheme(systemPreference);
+      setSavedTheme(systemPreference);
     }
-  }, []); // Run once on mount
+  }, [setTheme]);
 
+  // Toggle between light and dark themes
   const toggleTheme = () => {
     const currentTheme = localStorage.getItem("theme");
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-    // Update state and document body classes
+    // Remove old theme and add new theme
     document.body.classList.remove("dark", "light");
     document.body.classList.add(newTheme);
+
+    // Update localStorage and state
     localStorage.setItem("theme", newTheme);
     setSavedTheme(newTheme);
+    setTheme(newTheme);
+
+    // Trigger theme transition animation
+    setAnimationClass("grow");
+
+    // Reset animation after 700ms
+    setTimeout(() => setAnimationClass(""), 700);
   };
 
-  //   const [animationClass, setAnimationClass] = useState<string>(
-  //     "animate__fadeInLeft"
-  //   );
-
-  //   const handleCloseMenu = () => {
-  //     setAnimationClass("animate__fadeOutLeft");
-  //     setTimeout(() => {
-  //       setViewMenu(false);
-  //       setAnimationClass("animate__fadeInLeft");
-  //     }, 500);
-  //   };
-
   return (
-    <nav className="flex justify-between">
-      <div className="header-logo bg-nav-bg text-center px-10 pb-2 border-r border-gray-700">
-        <a
-          href="#"
-          className="flex items-center text-4xl h-full justify-center logo-font uppercase gap-x-2"
-        >
-          <img
-            src={savedTheme === "light" ? logoWhite : logoDark}
-            alt="Logo"
-            className="w-9 object-contain"
-          />
-          <span className="mt-2">Kidus</span>
-        </a>
+    <>
+      <div className="fixed w-full">
+        <header className="container mx-auto mt-5">
+          <div className="flex justify-center">
+            <nav className="flex justify-between px-5 py-1 items-center rounded-full border w-[45%] overflow-hidden">
+              <a href="#" className="logo-font text-center text-3xl uppercase">
+                Kidus
+              </a>
 
-        <svg
-          className="svg-corner corner-logo-box-one"
-          width="30"
-          height="30"
-          viewBox="0 0 40 40"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_310_2)">
-            <path
-              d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
-              fill={savedTheme === "light" ? "#fff" : "#242424"}
-            ></path>
-          </g>
-          <defs>
-            <clipPath id="clip0_310_2">
-              <rect width="30" height="30" fill="white"></rect>
-            </clipPath>
-          </defs>
-        </svg>
+              <div className="flex gap-x-5 text-sm">
+                <p>Home</p>
+                <p>About</p>
+                <p>Project</p>
+                <p>Contact</p>
+              </div>
 
-        <svg
-          className="svg-corner corner-logo-box-two"
-          width="30"
-          height="30"
-          viewBox="0 0 50 50"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_310_2)">
-            <path
-              d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
-              fill={savedTheme === "light" ? "#fff" : "#242424"}
-            ></path>
-          </g>
-          <defs>
-            <clipPath id="clip0_310_2">
-              <rect width="30" height="30" fill="white"></rect>
-            </clipPath>
-          </defs>
-        </svg>
+              {/* Theme */}
+              <div>
+                {savedTheme === "light" ? (
+                  <button onClick={toggleTheme}>
+                    <MoonStar size={25} />
+                  </button>
+                ) : (
+                  <button onClick={toggleTheme}>
+                    <Sun size={25} />
+                  </button>
+                )}
+              </div>
+            </nav>
+          </div>
+        </header>
       </div>
 
-      {/* Theme */}
-      <div className="header-theme bg-nav-bg text-center px-7 border-l border-gray-700">
-        <div className="flex items-center h-full justify-center ">
-          {savedTheme === "light" ? (
-            <button onClick={toggleTheme}>
-              <MoonStar />
-            </button>
-          ) : (
-            <button onClick={toggleTheme}>
-              <Sun />
-            </button>
-          )}
-        </div>
-        <svg
-          className="svg-corner theme-curve-down"
-          width="30"
-          height="30"
-          viewBox="0 0 50 50"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_310_2)">
-            <path
-              d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
-              fill={savedTheme === "light" ? "#fff" : "#242424"}
-            ></path>
-          </g>
-          <defs>
-            <clipPath id="clip0_310_2">
-              <rect width="30" height="30" fill="white"></rect>
-            </clipPath>
-          </defs>
-        </svg>
-
-        <svg
-          className="svg-corner theme-curve-top"
-          width="30"
-          height="30"
-          viewBox="0 0 50 50"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_310_2)">
-            <path
-              d="M30 0H0V30C0 13.431 13.431 0 30 0Z"
-              fill={savedTheme === "light" ? "#fff" : "#242424"}
-            ></path>
-          </g>
-          <defs>
-            <clipPath id="clip0_310_2">
-              <rect width="30" height="30" fill="white"></rect>
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
-    </nav>
+      <div
+        className={`absolute top-0 right-0 w-full h-full ${
+          savedTheme === "dark" ? "darkCircle" : "lightCircle"
+        } ${animationClass}`}
+        style={{ zIndex: -2 }}
+      />
+    </>
   );
 };
 
 export default Navbar;
+
+//   const [viewMenu, setViewMenu] = useState<boolean>(false);
+
+//   const [animationClass, setAnimationClass] = useState<string>(
+//     "animate__fadeInLeft"
+//   );
+
+//   const handleCloseMenu = () => {
+//     setAnimationClass("animate__fadeOutLeft");
+//     setTimeout(() => {
+//       setViewMenu(false);
+//       setAnimationClass("animate__fadeInLeft");
+//     }, 500);
+//   };
