@@ -1,4 +1,4 @@
-import { Menu, MoonStar, Sun, X } from "lucide-react";
+import { Menu, MoonStar, Sun, Webhook, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import useThemeStore from "../store/themeStore";
 import { nav } from "../constant/nav";
@@ -109,9 +109,14 @@ const Navbar = () => {
 
               <div className="flex gap-x-8 text-sm">
                 {nav.map((n) => (
-                  <a key={n.id} href={n.path}>
-                    {n.name}
-                  </a>
+                  <>
+                    <span className="rotate-75">
+                      <Webhook size={12} />
+                    </span>
+                    <a key={n.id} href={n.path}>
+                      {n.name}
+                    </a>
+                  </>
                 ))}
               </div>
 
