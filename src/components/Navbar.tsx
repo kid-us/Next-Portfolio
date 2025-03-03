@@ -104,7 +104,7 @@ const Navbar = () => {
               style={{ width: `${scrollWidth}%` }}
             >
               <a href="#" className="logo-font text-center text-3xl uppercase">
-                Kidush
+                Kidus
               </a>
 
               <div className="flex gap-x-8 text-sm">
