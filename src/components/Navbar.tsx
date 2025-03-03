@@ -6,6 +6,7 @@ const Navbar = () => {
   const { setTheme } = useThemeStore();
   const [savedTheme, setSavedTheme] = useState<string>("");
   const [animationClass, setAnimationClass] = useState("");
+  const [scrollWidth, setScrollWidth] = useState(100);
 
   // Set theme based on localStorage or system preference on initial load
   useEffect(() => {
@@ -24,6 +25,26 @@ const Navbar = () => {
       setTheme(systemPreference);
       setSavedTheme(systemPreference);
     }
+
+    // Listen for scroll events to adjust the navbar width
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const maxWidth = 100;
+      const minWidth = 50;
+
+      // Calculate the width based on scroll position
+      let newWidth =
+        maxWidth - (scrollPosition / windowHeight) * (maxWidth - minWidth);
+      newWidth = Math.max(minWidth, newWidth); // Prevent width from going below minWidth
+      setScrollWidth(newWidth);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [setTheme]);
 
   // Toggle between light and dark themes
@@ -52,12 +73,16 @@ const Navbar = () => {
       <div className="fixed w-full">
         <header className="container mx-auto mt-5">
           <div className="flex justify-center">
-            <nav className="flex justify-between px-5 py-1 items-center rounded-full border w-[45%] overflow-hidden">
-              <a href="#" className="logo-font text-center text-3xl uppercase">
+            <nav
+              className={`${scrollWidth < 100 ? "nav-bg" : "bg-background"}
+              flex justify-between px-5 py-[7px] items-center rounded-full w-full overflow-hidden`}
+              style={{ width: `${scrollWidth}%` }}
+            >
+              <a href="#" className="logo-font text-center text-2xl uppercase">
                 Kidus
               </a>
 
-              <div className="flex gap-x-5 text-sm">
+              <div className="flex gap-x-8 text-sm">
                 <p>Home</p>
                 <p>About</p>
                 <p>Project</p>
@@ -68,11 +93,11 @@ const Navbar = () => {
               <div>
                 {savedTheme === "light" ? (
                   <button onClick={toggleTheme}>
-                    <MoonStar size={25} />
+                    <MoonStar size={20} />
                   </button>
                 ) : (
                   <button onClick={toggleTheme}>
-                    <Sun size={25} />
+                    <Sun size={20} />
                   </button>
                 )}
               </div>

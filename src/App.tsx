@@ -5,6 +5,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <div className="h-[600dvh]"></div>
     </>
   );
 }
