@@ -1,7 +1,6 @@
-import Link from "next/link";
 import SeriousFacts from "./components/SeriousFacts";
 import SocialLinks from "./components/SocialLinks";
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { Hand } from "lucide-react";
 import React from "react";
 
 export default function Home() {
@@ -9,10 +8,16 @@ export default function Home() {
     <div>
       <div className="grid lg:grid-cols-3 lg:mt-32 mt-20">
         <div className="lg:col-span-2">
-          <p className="mb-6 text-color-secondary">Hi there, it's Kidus</p>
-          <p className="lg:text-5xl text-3xl font-bold">
-            Designing modern, responsive, and engaging web experiences that
-            bring ideas to life.
+          <p className="mb-6 text-color-secondary flex">
+            <Hand className="text-primary" /> <span className="mx-2"></span> Hi
+            there, it's Kidus
+          </p>
+          <p className="lg:text-5xl text-3xl font-bold  lg:leading-14">
+            Designing{" "}
+            <span className="text-primary">
+              modern, responsive, and engaging web experiences
+            </span>{" "}
+            that bring ideas to life.
           </p>
         </div>
         <div></div>

@@ -34,6 +34,7 @@
 
 .light {
   color: #000;
+  --primary: #14cc5e;
   --background: #f7f8fa;
   --nav-bg: #fff;
   --btn: #000;
@@ -57,6 +58,7 @@
 
 .dark {
   color: #fff;
+  --primary: #14cc5e;
   --btn: #fff;
   --btn-color: #000 !important;
   --nav-bg: #242424;
