@@ -7,6 +7,7 @@ import MenuPopUp from "./components/Menu";
 import useThemeStore from "@/store/themeStore";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import "animate.css";
 
 const Navbar = () => {
   const { setTheme, theme } = useThemeStore();
@@ -77,7 +78,7 @@ const Navbar = () => {
   };
 
   const [menuAnimationClass, setMenuAnimationClass] = useState<string>(
-    "animate__fadeInLeft"
+    "animate__fadeInRight"
   );
 
   const handleCloseMenu = () => {
