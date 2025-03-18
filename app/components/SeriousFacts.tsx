@@ -51,14 +51,18 @@ const SeriousFacts = () => {
   };
   return (
     <>
-      <div className="flex justify-between text-color-secondary font-semibold border-b border-secondary-border pb-4 mb-8">
+      <div className="flex justify-between text-color-secondary border-b border-secondary-border pb-4 mb-8">
         <p>Serious Facts</p>
         <p>
           {seriousFacts.id} - {facts.length}
         </p>
       </div>
-      <p className="font-bold text-3xl">{seriousFacts.value} +</p>
-      <p className="text-lg font-bold mt-5">{seriousFacts.title}</p>
+      <p className="text-lg font-bold text-color-secondary">
+        {seriousFacts.title}
+      </p>
+      <p className="font-extrabold lg:text-3xl text-2xl mt-5">
+        {seriousFacts.value} +
+      </p>
       <p className="mt-3 text-sm text-color-secondary">{seriousFacts.note}</p>
       <div className="flex mt-5 gap-x-5">
         <button onClick={handlePrev}>
