@@ -5,9 +5,12 @@ import { useEffect, useState } from "react";
 import { nav } from "@/constants/nav";
 import MenuPopUp from "./components/Menu";
 import useThemeStore from "@/store/themeStore";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const Navbar = () => {
   const { setTheme, theme } = useThemeStore();
+  const pathname = usePathname();
   const [savedTheme, setSavedTheme] = useState<string>("");
   const [animationClass, setAnimationClass] = useState("");
   const [scrollWidth, setScrollWidth] = useState(100);
@@ -106,16 +109,16 @@ const Navbar = () => {
               <a href="#" className="logo-font text-center text-3xl uppercase">
                 Kidus
               </a>
-              <div className="flex gap-x-10 text-[16px]">
+              <div className="flex gap-x-9 text-[15px]">
                 {nav.map((n) => (
-                  <div key={n.id} className="flex gap-x-5">
-                    <span className="rotate-75">
-                      <Webhook size={12} />
-                    </span>
-                    <a key={n.id} href={n.path}>
-                      {n.name}
-                    </a>
-                  </div>
+                  <Link href={n.path} key={n.id} className="flex gap-x-3">
+                    {pathname === n.path && (
+                      <span className="rotate-75">
+                        <Webhook size={12} />
+                      </span>
+                    )}
+                    {n.name}
+                  </Link>
                 ))}
               </div>
 
