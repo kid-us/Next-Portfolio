@@ -13,8 +13,6 @@ const Navbar = () => {
   const [scrollWidth, setScrollWidth] = useState(100);
   const [viewMenu, setViewMenu] = useState<boolean>(false);
 
-  console.log(theme);
-
   // Set theme based on localStorage or system preference on initial load
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -108,17 +106,16 @@ const Navbar = () => {
               <a href="#" className="logo-font text-center text-3xl uppercase">
                 Kidus
               </a>
-
-              <div className="flex gap-x-8 text-sm">
+              <div className="flex gap-x-10 text-[16px]">
                 {nav.map((n) => (
-                  <>
+                  <div key={n.id} className="flex gap-x-5">
                     <span className="rotate-75">
                       <Webhook size={12} />
                     </span>
                     <a key={n.id} href={n.path}>
                       {n.name}
                     </a>
-                  </>
+                  </div>
                 ))}
               </div>
 
