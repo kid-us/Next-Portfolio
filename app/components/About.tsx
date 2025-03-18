@@ -8,7 +8,7 @@ const About = () => {
         <Atom size={16} className="text-primary" /> About Me
       </p>
 
-      <p className="text-center lg:text-2xl text-lg lg:leading-10 mt-10">
+      <p className="text-center lg:text-2xl text-lg mt-10">
         I’m Kidus Wondmagegnehu, a passionate Frontend Developer with over 3
         years of experience in crafting seamless, user-centric web applications.
         Specializing in modern technologies and best practices, I’ve
