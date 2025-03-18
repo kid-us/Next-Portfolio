@@ -1,3 +1,4 @@
+import About from "./components/About";
 import SeriousFacts from "./components/SeriousFacts";
 import SocialLinks from "./components/SocialLinks";
 import { Hand } from "lucide-react";
@@ -5,7 +6,8 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div>
+    <>
+      {/* Hero */}
       <div className="grid lg:grid-cols-3 lg:mt-32 mt-20">
         <div className="lg:col-span-2">
           <p className="mb-6 text-color-secondary flex">
@@ -36,6 +38,9 @@ export default function Home() {
           <SeriousFacts />
         </div>
       </div>
-    </div>
+
+      {/* About */}
+      <About />
+    </>
   );
 }
