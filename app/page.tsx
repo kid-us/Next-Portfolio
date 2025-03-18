@@ -21,9 +21,9 @@ export default function Home() {
       <div className="grid lg:grid-cols-3 gap-x-10">
         <div className="lg:col-span-2 lg:flex lg:items-center">
           <div className="w-full">
-            <div className="border border-secondary-border w-full lg:mt-0 mt-5"></div>
+            <div className="border border-secondary-border w-full lg:mt-0 mt-10"></div>
             {/* Social Link */}
-            <div className="flex lg:justify-start justify-center lg:gap-x-10 gap-x-6 my-10">
+            <div className="flex lg:gap-x-10 gap-x-6 my-10">
               <SocialLinks />
             </div>
           </div>
