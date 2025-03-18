@@ -57,9 +57,7 @@ const SeriousFacts = () => {
           {seriousFacts.id} - {facts.length}
         </p>
       </div>
-      <p className="text-lg font-bold text-color-secondary">
-        {seriousFacts.title}
-      </p>
+      <p className="text-lg font-bold">{seriousFacts.title}</p>
       <p className="font-extrabold lg:text-3xl text-2xl mt-5">
         {seriousFacts.value} +
       </p>
