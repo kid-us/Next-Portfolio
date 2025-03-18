@@ -1,6 +1,7 @@
 import { nav } from "@/constants/nav";
-import { MoonStar, Sun, X } from "lucide-react";
+import { MoonStar, Sun, Webhook, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Props {
   animate: string;
@@ -10,6 +11,8 @@ interface Props {
 }
 
 const MenuPopUp = ({ animate, onClose, onToggle, theme }: Props) => {
+  const pathname = usePathname();
+
   return (
     <>
       <div
@@ -25,11 +28,11 @@ const MenuPopUp = ({ animate, onClose, onToggle, theme }: Props) => {
           <div className="flex gap-x-5 nav-bg border border-zinc-400 rounded-full py-[9px] px-5 ms-28 me-8">
             {theme === "light" ? (
               <button onClick={onToggle}>
-                <MoonStar size={20} />
+                <MoonStar size={20} className="text-primary" />
               </button>
             ) : (
               <button onClick={onToggle}>
-                <Sun size={20} />
+                <Sun size={20} className="text-primary" />
               </button>
             )}
             <button onClick={() => onClose()}>
@@ -42,8 +45,13 @@ const MenuPopUp = ({ animate, onClose, onToggle, theme }: Props) => {
               <Link
                 key={n.id}
                 href={n.path}
-                className="text-xl mb-5 border-b pb-5 block font-semibold"
+                className="flex items-center text-xl mb-5 border-b pb-5 font-semibold"
               >
+                {pathname === n.path && (
+                  <span>
+                    <Webhook size={19} className="text-primary me-2" />
+                  </span>
+                )}
                 {n.name}
               </Link>
             ))}
@@ -51,7 +59,7 @@ const MenuPopUp = ({ animate, onClose, onToggle, theme }: Props) => {
 
           <p className="absolute bottom-10 logo-font uppercase text-lg ms-2">
             Kidus{" "}
-            <span className="font-poppins text-xs block">
+            <span className="font-poppins text-xs block text-color-secondary">
               creative frontend developer
             </span>
           </p>

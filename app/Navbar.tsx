@@ -112,10 +112,14 @@ const Navbar = () => {
               </a>
               <div className="flex gap-x-9 text-[15px]">
                 {nav.map((n) => (
-                  <Link href={n.path} key={n.id} className="flex gap-x-3">
+                  <Link
+                    href={n.path}
+                    key={n.id}
+                    className="flex items-center gap-x-3"
+                  >
                     {pathname === n.path && (
-                      <span className="rotate-75">
-                        <Webhook size={12} />
+                      <span>
+                        <Webhook size={14} className="text-primary" />
                       </span>
                     )}
                     {n.name}
@@ -127,11 +131,11 @@ const Navbar = () => {
               <div>
                 {savedTheme === "light" ? (
                   <button onClick={toggleTheme}>
-                    <MoonStar size={20} />
+                    <MoonStar size={20} className="text-primary" />
                   </button>
                 ) : (
                   <button onClick={toggleTheme}>
-                    <Sun size={20} />
+                    <Sun size={20} className="text-primary" />
                   </button>
                 )}
               </div>
@@ -149,11 +153,11 @@ const Navbar = () => {
               <div className="flex gap-x-5 nav-bg border border-zinc-400 rounded-full py-[9px] px-5">
                 {savedTheme === "light" ? (
                   <button onClick={toggleTheme}>
-                    <MoonStar size={20} />
+                    <MoonStar size={20} className="text-primary" />
                   </button>
                 ) : (
                   <button onClick={toggleTheme}>
-                    <Sun size={20} />
+                    <Sun size={20} className="text-primary" />
                   </button>
                 )}
                 {viewMenu ? (
