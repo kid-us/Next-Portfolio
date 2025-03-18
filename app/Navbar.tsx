@@ -99,12 +99,12 @@ const Navbar = () => {
       />
 
       <div className="fixed w-full">
-        <header className="container mx-auto lg:mt-5 mt-4">
+        <header className="lg:mx-24 mx-2 lg:mt-5 mt-4">
           <div className="flex justify-center">
             {/* Large Device Nav */}
             <nav
               className={`${scrollWidth < 100 ? "nav-bg" : "bg-background"}
-              lg:flex hidden justify-between px-5 py-[7px] items-center rounded-full w-full overflow-hidden`}
+              lg:flex hidden justify-between px-8 py-[7px] items-center rounded-full w-full overflow-hidden`}
               style={{ width: `${scrollWidth}%` }}
             >
               <a href="#" className="logo-font text-center text-3xl uppercase">
