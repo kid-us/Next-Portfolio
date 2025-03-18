@@ -12,7 +12,7 @@ const SocialLinks = () => {
         <Github size={19} className="text-color-secondary" />
         Github
         <span className="group-hover:rotate-45 transition-all duration-400 lg:block hidden">
-          <ArrowUpRight size={19} className="text-color-secondary" />
+          <ArrowUpRight size={19} className="text-primary" />
         </span>
       </Link>
 
@@ -22,7 +22,7 @@ const SocialLinks = () => {
       >
         <Linkedin size={19} className="text-color-secondary" /> LinkedIn
         <span className="group-hover:rotate-45 transition-all duration-400 lg:block hidden">
-          <ArrowUpRight size={19} className="text-color-secondary" />
+          <ArrowUpRight size={19} className="text-primary" />
         </span>
       </Link>
 
@@ -32,7 +32,7 @@ const SocialLinks = () => {
       >
         <Mail size={19} className="text-color-secondary" /> Gmail
         <span className="group-hover:rotate-45 transition-all duration-400 lg:block hidden">
-          <ArrowUpRight size={19} className="text-color-secondary" />
+          <ArrowUpRight size={19} className="text-primary" />
         </span>
       </Link>
     </>

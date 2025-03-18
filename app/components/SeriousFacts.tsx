@@ -64,10 +64,10 @@ const SeriousFacts = () => {
       <p className="mt-3 text-sm text-color-secondary">{seriousFacts.note}</p>
       <div className="flex mt-5 gap-x-5">
         <button onClick={handlePrev}>
-          <MoveLeft className="text-color-secondary" />
+          <MoveLeft className="text-primary" />
         </button>
         <button onClick={handleNext}>
-          <MoveRight className="text-color-secondary" />
+          <MoveRight className="text-primary" />
         </button>
       </div>
     </>

@@ -13,10 +13,8 @@ export default function Home() {
             there, it's Kidus
           </p>
           <p className="lg:text-5xl text-3xl font-bold  lg:leading-14">
-            Designing{" "}
-            <span className="text-primary">
-              modern, responsive, and engaging web experiences
-            </span>{" "}
+            Designing <span className="text-primary">modern, responsive,</span>{" "}
+            and <span className="text-primary">engaging web experiences</span>{" "}
             that bring ideas to life.
           </p>
         </div>
