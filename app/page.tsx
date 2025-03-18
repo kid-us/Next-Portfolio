@@ -7,7 +7,7 @@ import React from "react";
 export default function Home() {
   return (
     <div>
-      <div className="grid lg:grid-cols-3 lg:mt-32 mt-24">
+      <div className="grid lg:grid-cols-3 lg:mt-32 mt-20">
         <div className="lg:col-span-2">
           <p className="mb-6 text-color-secondary">Hi there, it's Kidus</p>
           <p className="lg:text-5xl text-3xl font-bold">
