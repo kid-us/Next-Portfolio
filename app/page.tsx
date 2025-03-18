@@ -1,4 +1,8 @@
+import Link from "next/link";
 import SeriousFacts from "./components/SeriousFacts";
+import SocialLinks from "./components/SocialLinks";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import React from "react";
 
 export default function Home() {
   return (
@@ -15,8 +19,14 @@ export default function Home() {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-x-10">
-        <div className="flex col-span-2 items-center">
-          <div className="border border-secondary-border w-full lg:mt-0 mt-5 lg:mb-0 mb-10"></div>
+        <div className="lg:col-span-2 lg:flex lg:items-center">
+          <div className="w-full">
+            <div className="border border-secondary-border w-full lg:mt-0 mt-5"></div>
+            {/* Social Link */}
+            <div className="flex lg:justify-start justify-center lg:gap-x-10 gap-x-6 my-10">
+              <SocialLinks />
+            </div>
+          </div>
         </div>
 
         <div>
