@@ -1,4 +1,6 @@
 import About from "./components/About";
+import Feature from "./components/Features";
+import Marquee from "./components/Marquee";
 import SeriousFacts from "./components/SeriousFacts";
 import SocialLinks from "./components/SocialLinks";
 import { Hand } from "lucide-react";
@@ -38,6 +40,9 @@ export default function Home() {
           <SeriousFacts />
         </div>
       </div>
+
+      {/* Feature */}
+      <Feature />
 
       {/* About */}
       <About />
