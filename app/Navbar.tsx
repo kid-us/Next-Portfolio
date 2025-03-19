@@ -98,7 +98,7 @@ const Navbar = () => {
         } ${animationClass}`}
       />
 
-      <div className="fixed w-full">
+      <div className="fixed w-full z-50">
         <header className="lg:mx-24 mx-2 lg:mt-5 mt-4">
           <div className="flex justify-center">
             {/* Large Device Nav */}
