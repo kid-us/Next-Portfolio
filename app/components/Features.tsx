@@ -37,7 +37,7 @@ const Feature = () => {
   return (
     <div className="py-20">
       <div
-        className="marquee fadeout-horizontal border border-secondary"
+        className="marquee fadeout-horizontal border border-secondary-border"
         style={{ "--num-items": testimonies.length } as React.CSSProperties}
       >
         <div className="marquee-track">
