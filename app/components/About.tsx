@@ -1,12 +1,10 @@
-import { Atom } from "lucide-react";
 import React from "react";
+import Title from "./Title";
 
 const About = () => {
   return (
     <>
-      <p className="flex items-center justify-center gap-x-3">
-        <Atom size={16} className="text-primary" /> About Me
-      </p>
+      <Title title="About Me"  />
 
       <p className="text-center lg:text-2xl text-lg mt-5">
         I’m Kidus Wondmagegnehu, a passionate Frontend Developer with over 3

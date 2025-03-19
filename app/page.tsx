@@ -1,6 +1,7 @@
 import About from "./components/About";
 import Feature from "./components/Features";
 import Marquee from "./components/Marquee";
+import Project from "./components/Project";
 import SeriousFacts from "./components/SeriousFacts";
 import SocialLinks from "./components/SocialLinks";
 import { Hand } from "lucide-react";
@@ -46,6 +47,9 @@ export default function Home() {
 
       {/* About */}
       <About />
+
+      {/* Projects */}
+      <Project />
     </>
   );
 }

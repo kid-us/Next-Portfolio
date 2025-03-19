@@ -47,7 +47,7 @@ const Feature = () => {
               className="marquee-item"
               style={{ "--item-position": t.id } as React.CSSProperties}
             >
-              <div className="flex items-center gap-x-2">
+              <div className="flex justify-center items-center gap-x-2">
                 <Atom className="text-feature" />
                 <p className="font-bold text-center lg:text-5xl text-4xl text-feature">
                   {t.feature}
