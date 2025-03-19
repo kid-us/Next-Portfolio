@@ -48,8 +48,8 @@ const Feature = () => {
               style={{ "--item-position": t.id } as React.CSSProperties}
             >
               <div className="flex items-center gap-x-2">
-                <Atom className="text-zinc-800" />
-                <p className="font-bold text-center text-5xl text-zinc-800">
+                <Atom className="text-feature" />
+                <p className="font-bold text-center lg:text-5xl text-4xl text-feature">
                   {t.feature}
                 </p>
               </div>

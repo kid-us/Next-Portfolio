@@ -19,6 +19,7 @@ module.exports = {
         panelBg: "var(--panel-bg)",
         navBg: "var(--nav-bg)",
         primary: "var(--primary)",
+        feature: "var(--color-feature)",
       },
       screen: {
         sm: "640px", // Small devices (landscape phones)
