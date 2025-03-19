@@ -3,7 +3,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="mt-20">
+    <>
       <p className="flex items-center justify-center gap-x-3">
         <Atom size={16} className="text-primary" /> About Me
       </p>
@@ -16,7 +16,7 @@ const About = () => {
         and visually stunning digital products that deliver exceptional user
         experiences.
       </p>
-    </div>
+    </>
   );
 };
 
