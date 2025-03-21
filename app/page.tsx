@@ -6,6 +6,7 @@ import SeriousFacts from "./components/SeriousFacts";
 import SocialLinks from "./components/SocialLinks";
 import { Hand } from "lucide-react";
 import React from "react";
+import Testimonials from "./sections/Testimonials";
 
 export default function Home() {
   return (
@@ -49,7 +50,10 @@ export default function Home() {
       <About />
 
       {/* Projects */}
-      <Project />
+      {/* <Project /> */}
+
+      {/* Testimonials */}
+      <Testimonials />
     </>
   );
 }
