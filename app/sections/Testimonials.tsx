@@ -18,16 +18,16 @@ const Testimonials = () => {
       </div>
 
       <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0),rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(0,0,0,0))] max-h-[738px] overflow-hidden mt-10">
-        <TestimonialColumn testimonials={firstColumn} duration={15} />
+        <TestimonialColumn testimonials={firstColumn} duration={25} />
         <TestimonialColumn
           testimonials={secondColumn}
           className="hidden md:block"
-          duration={19}
+          duration={29}
         />
         <TestimonialColumn
           testimonials={thirdColumn}
           className="hidden lg:block"
-          duration={17}
+          duration={27}
         />
       </div>
     </section>
